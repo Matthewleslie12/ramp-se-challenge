@@ -24,8 +24,13 @@ export function InputSelect<TItem>({
         return
       }
 
-      consumerOnChange(selectedItem)
-      setSelectedValue(selectedItem)
+      if (selectedItem === "ALL_EMPLOYEES") {
+        consumerOnChange(null)
+        setSelectedValue(null)
+      } else {
+        consumerOnChange(selectedItem)
+        setSelectedValue(selectedItem)
+      }
     },
     [consumerOnChange]
   )
